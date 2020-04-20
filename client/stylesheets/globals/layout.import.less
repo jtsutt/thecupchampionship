@@ -15,16 +15,6 @@
       background-size: contain;
       z-index: -1;
     }
-
-    #container {
-      .position(absolute, 50%, 0, 0, 0, auto, 100%);
-      .transform(translate3d(0, -50%, 0));
-      max-width: 414px;
-      max-height: 736px;
-      //max-width: 375px;
-      //max-height: 667px;    
-      margin: 0 auto;
-    }
   }
 }
 // End of iPhone
@@ -43,16 +33,25 @@ body {
 #menu {
   .position(absolute, 0, 0, 0, 0);
   right: 100% - @menu-width;
+  @media (min-width: 376px) {
+    .position(relative);
+  }
 }
 
 #content-container {
   .position(absolute, 0, 0, 0, 0);
+  @media (min-width: 376px) {
+    .position(relative);
+    height: 93%;
+  }
   .transition(all 200ms ease-out);
   .transform(translate3d(0, 0, 0));
 
   // Toggle menu on mobile
   .menu-open & {
-    .transform(translate3d(@menu-width, 0, 0));
+    @media (max-width: 376px) {
+      .transform(translate3d(@menu-width, 0, 0));
+    }
   }
 
   > div.page {
@@ -75,8 +74,10 @@ body {
   cursor: pointer;
 
   .menu-open & {
-    .transform(translate3d(@menu-width, 0, 0));
-    z-index: 1;
+    @media (max-width: 376px) {
+      .transform(translate3d(@menu-width, 0, 0));
+      z-index: 1;
+    }
   }
 }
 
