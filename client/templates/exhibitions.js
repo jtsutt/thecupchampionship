@@ -1,6 +1,7 @@
 var FEATURED_COUNT = 4;
 
 Template.exhibitions.onCreated( function(){
+  Meteor.subscribe('exhibitions');
     Meteor.subscribe('rosters',Session.get('currentevent'));
     var unique = "a"+parseInt(Session.get('selectedYear')-2000)
     this.subscribe('matches',{year:unique,name:"all",event:Session.get('currentevent')});

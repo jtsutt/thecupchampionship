@@ -85,9 +85,13 @@ var newmatch = {
     //this.subscribe('rosters',Session.get("currentevent"));
     //});
     Template.home.onCreated(function() {
-        this.subscribe('media', Session.get('currentevent'),Session.get('selectedYear'));
-        this.subscribe('rosters',Session.get("currentevent"));
-        this.subscribe('matches', {event:Session.get('currentevent'),year:Session.get('selectedYear'),name:'all'})
+      const self = this;
+      this.autorun(function() {
+        // self.subscribe('media', Session.get('currentevent'),Session.get('selectedYear'));
+        self.subscribe('rosters',Session.get("currentevent"), Session.get('selectedYear'));
+        self.subscribe('matches', {event:Session.get('currentevent'),year:Session.get('selectedYear'),name:'all'})
+      });
+        
 });
 
 
@@ -140,7 +144,11 @@ Template.home.events({
     'click .accessmatches': function(event){
         Session.set('matchaccess',!Session.get('matchaccess'));
         console.log(Session.get('matchaccess'));
-        Meteor.subscribe('members',{event:Session.get('currentevent'),name:'all'});
+        if(this.membersHandler){
+          this.membersHandler.stop();
+        }
+        this.membersHandler = Meteor.subscribe('members',{event:Session.get('currentevent'),name:'all'});
+        
     },
     'click .addminutes':function(event){
         var yrIDX = 100*(Session.get('selectedYear')-2000);
@@ -173,7 +181,6 @@ Template.home.events({
     Overlay.open('overlay2', Cups.findOne({event:Session.get('currentevent'),year:parseInt(Session.get('selectedYear'))}));
   },
     'click .broadcastday': function() {
-    Meteor.subscribe('media',Session.get('currentevent'),Session.get('selectedYear'));
     Overlay.open('shareOverlay', this);
   },
     'click .broadcastday2': function(event){

@@ -12,9 +12,14 @@ Meteor.publish('courses', function() {
   return Courses.find();
 });
 
-Meteor.publish('cups', function() {
-  return Cups.find();
+Meteor.publish('cups', function(currentEvent, selectedYear) {
+  return Cups.find({event: currentEvent, year: selectedYear});
 });
+
+Meteor.publish('cupsYear', function(currentEvent, selectedYear) {
+  return Cups.find({event: currentEvent}, {fields: {event:1, year: 1}});
+});
+
 Meteor.publish('wagers', function(params) {
   if (params.name == 'all'){Wagers.find({});}
   else {return Wagers.find({name:params.name});}
@@ -29,8 +34,8 @@ Meteor.publish('history', function(params) {
     }
 });
 
-Meteor.publish('rosters', function(eventstr) {
-  return Rosters.find({event:eventstr});
+Meteor.publish('rosters', function(eventstr, selectedYear) {
+  return Rosters.find({event:eventstr, year: selectedYear});
 });
 
 Meteor.publish('matches', function(params) {
@@ -58,8 +63,10 @@ Meteor.publish('matches', function(params) {
 //  return Media.find({event:eventstr,'data.matchID':{$gt:idxmatch,$lt:idxmatch+100}})
 //});
 
-Meteor.publish('media', function(){
-    return Media.find();
+Meteor.publish('media', function(currentevent, selectedYear){
+  console.log("media=====>", currentevent, selectedYear);
+  
+    return Media.find({year: selectedYear, event: currentevent});
 });
 
 Meteor.publish('events', function() {

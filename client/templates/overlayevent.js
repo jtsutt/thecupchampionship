@@ -159,9 +159,9 @@ Template.overlayevent.events({
   },
     'click .eventclick' : function(event){
         Session.set('currentevent',event.target.id);
-        var ready = Meteor.subscribe('matches', {event:Session.get('currentevent'),year:Session.get('selectedYear'),name:'all'})
-        Meteor.subscribe('media', Session.get('currentevent'),Session.get('selectedYear'));
-        Meteor.subscribe('rosters',Session.get("currentevent"));
+        // var ready = Meteor.subscribe('matches', {event:Session.get('currentevent'),year:Session.get('selectedYear'),name:'all'})
+        // Meteor.subscribe('media', Session.get('currentevent'),Session.get('selectedYear'));
+        // Meteor.subscribe('rosters',Session.get("currentevent"));
         return ready
     },
     'click .login': function() {

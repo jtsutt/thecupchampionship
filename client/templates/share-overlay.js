@@ -9,7 +9,9 @@ var clubs = ["DRIVER","3 WOOD","3 IRON","4 IRON ","5 IRON","6 IRON","7 IRON","8 
 Template.shareOverlay.onCreated(function() {
   Session.set(TWEETING_KEY, true);
   Session.set(IMAGE_KEY, null);
-    
+  console.log("shareOverlay.onCreated====>");
+  
+    this.subscribe('media', Session.get('currentevent'),Session.get('selectedYear'));
 });
 
 Template.shareOverlay.rendered = function(template){
