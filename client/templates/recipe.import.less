@@ -1,15 +1,32 @@
 
 
 .page.recipe {
-    
-    #avatar {
-    /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
+
+  .showPicker{
+    @media (min-width: 376px) {
+      height: 2vh;
+    }
+    height: 2vh;
+  }
+  
+  #avatar {
+    @media (min-width: @screen-sm) {
+      width: 20vh;
+      margin-left: ~"calc(50% - 10vh)";
+    }
+    width: 20vh;
+    margin-left: ~"calc(50% - 10vh)";
+  /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
     //background-image: url('http://i.stack.imgur.com/Dj7eP.jpg');
     border:3px solid @color-cup1;
     /* make a square container */
     width: 30%;
     height: auto;
-    margin-left:35%;margin-top:2.75em;
+    margin-left: 35%;
+    margin-top:0;
+    @media (min-width: @screen-sm) {
+      margin-top:2.75em;
+    }
 
     /* fill the container, preserving aspect ratio, and cropping to fit */
     background-size: cover;
@@ -19,13 +36,19 @@
 
     /* round the edges to a circle with border radius 1/2 container size */
     border-radius: 50%;
-        input {font-size: 6px;position:relative;width:100%; margin-top:90%;}
+        input {
+          @media (min-width: 376px) {
+            font-size: 1vh;
+          }
+          font-size: 1vh;
+          font-size: 6px;position:relative;width:100%; margin-top:90%;
+        }
 }
     .playerstats {
     border:0px solid black;
     margin-left:0px; 
     width:100%;
-    height:20%;
+    height:15%;
     padding:0.25em 0em;
     text-align:center;
     td {border-top:0px solid black;width:10%;}
@@ -158,7 +181,7 @@
   }
 
   .content-scrollable {
-    top:00%; 
+    top: ~"calc(40vh + 50px)"; 
     margin-top: -1px; // Fixes flicker from animations behind content-scrollable
       max-height: 1500px;
   }
@@ -231,7 +254,8 @@
   .content-scrollable {
     min-height: 40%;
     top: 0%;
-    margin-top:72%;  
+    top: ~"calc(40vh + 50px)";
+    margin-top: 0;
   }
   .feed-scrollable { .transform(translate3d(100%, 0, 0)); }
   .make-scrollable { .transform(translate3d(0,0,0));}
@@ -308,3 +332,15 @@
   .make-scrollable { .transform(translate3d(-100%,0,0)); }
 }
 .links {position:absolute;}
+
+#headbanner{
+  @media (min-width: @screen-sm) {
+    left: 250px;
+    width: ~"calc(100% - 250px)";
+    top: 50px;
+    height: 40vh;
+  }
+  width: 100%;
+  top: 50px;
+  height: 40vh;
+}

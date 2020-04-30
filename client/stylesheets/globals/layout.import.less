@@ -1,3 +1,4 @@
+
 @menu-width: 45%;
 
 // iPhone6 for illustrative purposes only
@@ -31,27 +32,37 @@ body {
 }
 
 #menu {
-  .position(absolute, 0, 0, 0, 0);
-  right: 100% - @menu-width;
-  @media (min-width: 376px) {
-    .position(relative);
+  
+  @media (min-width: @screen-sm) {
+    height: 100%;
+    width: 200px;
   }
+  .position(absolute, 0, 0, 0, 0);
+  left: -45vw;
+  @media (min-width: @screen-sm) {
+    left: 0px;
+  }
+  .menu-open & {
+    @media (min-width: @screen-sm) {
+      .transform(translate3d(0, 0, 0));
+    }
+    .transform(translate3d(100%, 0, 0));
+  }
+  height: 100%;
+  width: 45vw;
 }
 
 #content-container {
   .position(absolute, 0, 0, 0, 0);
-  @media (min-width: 376px) {
-    .position(relative);
-    height: 93%;
-  }
   .transition(all 200ms ease-out);
   .transform(translate3d(0, 0, 0));
 
   // Toggle menu on mobile
   .menu-open & {
-    @media (max-width: 376px) {
-      .transform(translate3d(@menu-width, 0, 0));
+    @media (min-width: @screen-sm) {
+      .transform(translate3d(0, 0, 0));
     }
+      .transform(translate3d(@menu-width, 0, 0));
   }
 
   > div.page {
@@ -61,6 +72,9 @@ body {
 }
 
 .content-scrollable {
+  @media (min-width: @screen-sm) {
+    .position(absolute, 50px, 0, 0, 250px);
+  }
   .position(absolute, 0, 0, 0, 0);
   background: @color-empty;
   overflow-x: hidden;
@@ -74,10 +88,8 @@ body {
   cursor: pointer;
 
   .menu-open & {
-    @media (max-width: 376px) {
       .transform(translate3d(@menu-width, 0, 0));
       z-index: 1;
-    }
   }
 }
 

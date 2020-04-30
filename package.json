@@ -5,6 +5,7 @@
     "start": "meteor run"
   },
   "dependencies": {
+    "bootstrap": "^4.4.1",
     "chartjs-plugin-zoom": "^0.5.0",
     "convnetjs": "^0.3.0",
     "encoding": "^0.1.12",
@@ -14,8 +15,11 @@
     "file-system": "^2.2.2",
     "filestack-js": "^0.4.2",
     "highcharts": "^6.1.1",
+    "jquery": "^1.9.1",
     "jsmediatags": "^3.8.1",
     "meteor-node-stubs": "^0.2.11",
+    "popper.js": "^1.16.0",
+    "request": "^2.34.0",
     "request-promise": "^4.2.2",
     "simple-exiftool": "^1.1.0",
     "sync-request": "^6.0.0",

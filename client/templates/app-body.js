@@ -119,7 +119,7 @@ Template.appBody.helpers({
     //if (Math.max(document.documentElement.clientWidth, window.innerWidth || 0)>1020){return true}
     //  else {return Session.get(MENU_KEY) && 'menu-open';}
     console.log(document.documentElement.clientWidth, window.innerWidth);
-    if (window.innerWidth > 367) {
+    if (window.innerWidth > 768) {
       return Session.get(MENU_KEY);
     }
     return Session.get(MENU_KEY) && 'menu-open';
