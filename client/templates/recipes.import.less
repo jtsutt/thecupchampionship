@@ -1,6 +1,9 @@
 .page.recipes {
     
     table {
+        @media (min-width: 376px) {
+            height: 100%;
+        }
         width:100%;
         margin-top:0em;
         td {
@@ -9,9 +12,13 @@
             text-align: center;
             padding:0.25em 0.25em;
         }
+        .font-s3;
     }
     
     .querywrapper{
+        @media (min-width: 376px) {
+            height: 80%;
+        }
         background:-webkit-linear-gradient(left, @color-cup1,black,@color-cup2);
         color:white;
         width:100%;
@@ -45,4 +52,19 @@
     
     
 
+}
+
+.js-switch1 {
+    width: 3vmin;
+    height: 3vmin;
+}
+
+.js-switch2 {
+    width: 3vmin;
+    height: 3vmin;
+}
+
+.js-switch3 {
+    width: 3vmin;
+    height: 3vmin;
 }

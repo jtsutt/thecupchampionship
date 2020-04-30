@@ -1,0 +1,48 @@
+<template name="Navigation">
+  <section id="menu" class="nav overthrow">
+    <a href="{{pathFor 'home'}}" class="{{activePage 'home'}}">
+      <span class="wrapper-menu-item">
+        <span class="icon-rss"></span>
+        <span class="title-menu">Live<br>Scoring</span>
+      </span>
+    </a>
+    <a href="{{pathFor 'feed'}}" class="{{activePage 'feed'}}">
+      <span class="wrapper-menu-item">
+        <span class="icon-share"></span>
+        <span class="title-menu">Draft</span>
+      </span>
+    </a>
+    <a href="{{pathFor 'recipes'}}" class="{{activePage 'recipes' 'recipe'}}">
+      <span class="wrapper-menu-item">
+        <span class="icon-user"></span>
+        <span class="title-menu">Members</span>
+      </span>
+    </a>
+    <a href="{{pathFor 'exhibitions'}}" class="{{activePage 'exhibitions'}}">
+      <span class="wrapper-menu-item">
+        <span class="icon-rss"></span>
+        <span class="title-menu">Exhibitions</span>
+      </span>
+    </a>    
+    <a href="{{pathFor 'about'}}" class="{{activePage 'about'}}">
+      <span class="wrapper-menu-item">
+        <span class="icon-share"></span>    
+        <span class="title-menu">Pick 'Em</span>
+      </span>
+    </a>
+    <a href="{{pathFor 'glance'}}" class="{{activePage 'glance'}}">
+      <span class="wrapper-menu-item">
+        <span class="icon-rss"></span>
+        <span class="title-menu">At-a-Glance</span>
+      </span>
+    </a>  
+      {{#if iscurrentUser}}    
+    <a href="{{pathFor 'wagers'}}" class="{{activePage 'wagers'}}">
+      <span class="wrapper-menu-item">
+        <span class="icon-share"></span>
+        <span class="title-menu">Wagers</span>
+      </span>
+    </a>  
+      {{/if}}
+  </section>
+</template>

@@ -5,7 +5,11 @@
 
   .bg-image.home {
     height: 31%;
-      background-color:rgb(255,255,255);
+    background-color:rgb(255,255,255);
+
+    @media (min-width: 376px){
+      height: 80%;
+    }
   }
     
   .bg-image.exhibitions {
@@ -15,8 +19,18 @@
   
      
 
-  .currentexhibition{color:white;position:absolute;bottom:0.2rem;left:5%;font-size:0.9rem;width:90%;background-color:transparent; border:1px solid white;}
+  .currentexhibition{
+    @media (min-width: 376px) {
+      font-size: 100%;
+      width: 50%;
+      bottom: 5rem;
+    }
+    color:white;position:absolute;bottom:0.2rem;left:5%;font-size:0.9rem;width:90%;background-color:transparent; border:1px solid white;
+  }
   .intro {
+    @media (min-width: 376px) {
+      height: 5%;
+    }
     height:2rem;
     background-color:@color-cup1; color:white;font-size: 0.75rem;
     padding: 0 0; position:relative;text-align:center; 

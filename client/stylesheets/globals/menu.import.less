@@ -3,6 +3,8 @@
     linear-gradient(top, rgba(85,134,223,.1), rgba(0,0,0,0) 100%),
     url('img/app/bg-menu-640x1136.jpg')
   );
+  background-repeat: no-repeat;
+  background-size: cover;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 
@@ -12,6 +14,7 @@
     display: block;
     height: 20%;
     position: relative;
+
     text-align: center;
 
     &:hover,
@@ -39,5 +42,11 @@
       .title-caps;
       display: block;
     }
+  }
+  @media (min-width: @screen-sm) {
+    height: ~"calc(100vh - 50px)";
+    top: 50px;
+    width: 250px;
+    z-index: 1;
   }
 }

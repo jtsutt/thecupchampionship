@@ -1,7 +1,7 @@
 <template name="nav">
   <nav class="black">
       
-    <div class="nav-group">
+    <div class="nav-group disable-menu-btn">
       {{#if back}}
         <a class="nav-item js-back" href="#"><span class="icon-arrow-left-alt"></span></a>
         
@@ -16,6 +16,7 @@
         <span class="subtext-page">{{description}}</span>
         {{/each}}
     </div>
+
     <div class="nav-group right">
         <select class="currentyear2 styled-select rounded" id="currentyear2">
                 {{#each getcups}}
