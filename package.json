@@ -13,7 +13,7 @@
     "exiftool": "0.0.3",
     "file-system": "^2.2.2",
     "filestack-js": "^0.4.2",
-    "highcharts": "^6.1.1",
+    "highcharts": "^7.2.2",
     "jsmediatags": "^3.8.1",
     "meteor-node-stubs": "^0.2.11",
     "request-promise": "^4.2.2",
